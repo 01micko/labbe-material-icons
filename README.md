@@ -9,7 +9,7 @@ extremely light weight.
 
 `make`
 
-There is no install routine, jst copy all of the `labbe-material-*`
+There is no install routine, just copy all of the `labbe-material-*`
 directories to `~/local/share/icons/` and start using them.
 
 `make clean` removes all the compiled icons so you can start fresh.
