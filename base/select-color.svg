@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="grad2" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#FF7C7C" />
+      <stop offset="50%" stop-color="#91FF91" />
+      <stop offset="100%" stop-color="#7171FF" />
+    </linearGradient>
+  </defs>
+  <!--path d="m 96,96 -82.5,0 a 82.5,82.5 0 0 1 82.5,-82.5 z" style="fill:#73C696;stroke:none;"/>
+  <path d="m 96,96 0,-82.5 a 82.5,82.5 0 0 1 82.5, 82.5 z" style="fill:#C67375;stroke:none;"/>
+  <path d="m 96,96 82.5,0 a 82.5,82.5 0 0 1 -82.5, 82.5 z" style="fill:#E7E7B5;stroke:none;"/>
+  <path d="m 96,96 0,82.5 a 82.5,82.5 0 0 1 -82.5,-82.5 z" style="fill:#73A0C6;stroke:none;"/-->
+  <circle cx="96" cy="96" r="82.5" style="fill:url(#grad2);stroke:none;"/>
+  <g transform="rotate(45 96 96)">
+    <path d="m 88.5,75 -7.5,7.5 30,0 -7.5,-7.5 0,-30 a 7.5,7.5 0 0 0 -15,0 z" style="fill:#474747;stroke:none;"/>
+    <path d="m 90,82.5 0,67.5 3.75,2.25 4.5,0 3.75,-2.25 0,-67.5 z" style="stroke:#474747;stroke-width:3;fill:rgba(71,71,71,0.35);"/>
+  </g>
+</svg>

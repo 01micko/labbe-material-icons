@@ -1,0 +1,140 @@
+#!/bin/bash
+
+# build an icon theme from svg source - a bit hard coded :P
+# (c) Michael Amadio, 2016,2024 - GPLv2
+
+[ -f ./build.conf ] && . ./build.conf
+[ -z "$NAME" ] &&  NAME=Generic
+[ -z "$COMMENT" ] && COMMENT="An Icon Theme"
+ICONS=$1
+THEME="${NAME}-${ICONS}"
+rm -rf $THEME
+echo "Please wait. Processing $THEME ..."
+[ -d "$THEME" ] && rm -r "$THEME"
+TMP0=$(mktemp -p /tmp icn.XXXXXXXXX)
+TMP1=$(mktemp -p /tmp fix.XXXXXXXXX)
+
+(
+cd $ICONS
+# find each icon
+while read -r line;do
+	[ "${line:0:1}" = "#" ] && continue
+	[ -z "$line" ] && continue
+	# process, construct each icon
+	while read -r a b c; do 
+		[ -d "../${THEME}/${a}" ] || mkdir -p "../${THEME}/${a}"
+		SIZE=${a%/*}
+		[ "$SIZE" = 'scalable' ] && SIZE=256 # fix scalable
+		if [ -r "$b" ]; then
+			case ${THEME} in
+				*banana) sed -i "s/\#BCBCBC/\#745252/g" "$b" ;;
+			esac
+			while read -r ent;do
+				[ -z "$ent" ] && continue # skip blank lines
+				if [ "${ent:0:4}" = '<svg' ];then
+					if echo "$ent" | grep -q 'xlink';then
+						printf "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" height=\"${SIZE}px\" width=\"${SIZE}px\" viewBox=\"$VIEWBOX\">\n" >> "../${THEME}/${a}/${b}"
+					else
+						printf "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"${SIZE}px\" width=\"${SIZE}px\" viewBox=\"$VIEWBOX\">\n" >> "../${THEME}/${a}/${b}"
+					fi
+				elif [ "${ent:0:5}" = '<?xml' -o "${ent:0:6}" = '</svg>' ];then
+					printf "%s\n" "${ent}" >> "../${THEME}/${a}/${b}"
+				else
+					printf "  %s\n" "${ent}" >> "../${THEME}/${a}/${b}"
+				fi
+			done <<< "$(cat $b)"
+			# link(s) to icon if needed
+			for link in `echo "$c"`;do
+				[ -z "$b" ] && continue
+				(cd "../${THEME}/${a}"; ln -sf "$b" "$link")
+			done
+		fi
+	done <<< "$line"
+done < ../theme.conf
+)
+
+# delete empty dirs
+find $THEME -empty -type d -delete
+
+# link for hidpi
+(
+cd $THEME
+for i in `ls`; do ln -s $i ${i}@2x ;done
+)
+
+# constuct the index.theme
+echo "${THEME}" | grep -q 'base' || OTHER="${NAME}-base,"
+echo '[Icon Theme]' > "${THEME}"/index.theme
+echo "Name=${THEME}" >> "${THEME}"/index.theme
+echo "Inherits=${OTHER}hicolor" >> "${THEME}"/index.theme
+echo "Comment=$COMMENT" >> "${THEME}"/index.theme
+echo -n "Directories=" >> "${THEME}"/index.theme
+(cd "${THEME}"; find ./16 ./16@2x ./22 ./22@2x ./24 ./24@2x ./32 ./32@2x ./48 ./48@2x ./64 ./64@2x ./scalable ./scalable@2x -maxdepth 1 -type d -o -type l) > $TMP0
+while read -r w;do
+	echo -n "${w#*/}," >> $TMP1
+done < $TMP0
+cat "$TMP1" | sed 's/,$//' >> "${THEME}"/index.theme
+#rm $TMP1
+echo "" >> "${THEME}"/index.theme 
+while read -r y;do
+	yy=${y#*/}
+	py=${yy#*/}
+	echo "" >> "${THEME}"/index.theme  
+	case $yy in 
+		scalable*)
+			echo "[${yy}]" >> "${THEME}"/index.theme
+			echo "Size=256" >> "${THEME}"/index.theme
+			echo "Context=${py^}" >> "${THEME}"/index.theme #first char upper
+			echo "Type=Scalable" >> "${THEME}"/index.theme
+			echo "MinSize=8" >> "${THEME}"/index.theme
+			echo "MaxSize=512" >> "${THEME}"/index.theme
+			;;
+		16*)
+			echo "[${yy}]" >> "${THEME}"/index.theme
+			echo "Size=16" >> "${THEME}"/index.theme
+			echo $yy | grep -q '@' && echo "Scale=2" >> "${THEME}"/index.theme
+			echo "Context=${py^}" >> "${THEME}"/index.theme
+			echo "Type=fixed" >> "${THEME}"/index.theme
+			;;
+		22*)
+			echo "[${yy}]" >> "${THEME}"/index.theme
+			echo "Size=22" >> "${THEME}"/index.theme
+			echo $yy | grep -q '@' && echo "Scale=2" >> "${THEME}"/index.theme
+			echo "Context=${py^}" >> "${THEME}"/index.theme
+			echo "Type=fixed" >> "${THEME}"/index.theme
+			;;
+		24*)
+			echo "[${yy}]" >> "${THEME}"/index.theme
+			echo "Size=24" >> "${THEME}"/index.theme
+			echo $yy | grep -q '@' && echo "Scale=2" >> "${THEME}"/index.theme
+			echo "Context=${py^}" >> "${THEME}"/index.theme
+			echo "Type=fixed" >> "${THEME}"/index.theme
+			;;
+		32*)
+			echo "[${yy}]" >> "${THEME}"/index.theme
+			echo "Size=32" >> "${THEME}"/index.theme
+			echo $yy | grep -q '@' && echo "Scale=2" >> "${THEME}"/index.theme
+			echo "Context=${py^}" >> "${THEME}"/index.theme
+			echo "Type=fixed" >> "${THEME}"/index.theme
+			;;
+		48*)
+			echo "[${yy}]" >> "${THEME}"/index.theme
+			echo "Size=48" >> "${THEME}"/index.theme
+			echo $yy | grep -q '@' && echo "Scale=2" >> "${THEME}"/index.theme
+			echo "Context=${py^}" >> "${THEME}"/index.theme
+			echo "Type=fixed" >> "${THEME}"/index.theme
+			;;
+		64*)
+			echo "[${yy}]" >> "${THEME}"/index.theme
+			echo "Size=64" >> "${THEME}"/index.theme
+			echo $yy | grep -q '@' && echo "Scale=2" >> "${THEME}"/index.theme
+			echo "Context=${py^}" >> "${THEME}"/index.theme
+			echo "Type=fixed" >> "${THEME}"/index.theme
+			;;
+	esac
+done < $TMP0
+#rm $TMP0
+# move to dir structure
+pkg=$PKG-$VER # build.conf
+mkdir -p ${pkg}/usr/share/icons
+cp -arf "$THEME" ${pkg}/usr/share/icons

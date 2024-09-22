@@ -1,0 +1,14 @@
+#!/bin/bash
+. ./build.conf
+case "$0" in
+	*mk_clean)
+	 for i in base sage bark banana blue; do	
+		rm -rf ${NAME}-${i}
+	 done
+	exit
+	;;
+esac
+
+for I in base sage bark banana blue; do
+	./build_theme $I
+done
