@@ -9,13 +9,14 @@ extremely light weight.
 
 `make`
 
-There is no install routine, just copy all of the `labbe-material-*`
-directories to `~/local/share/icons/` and start using them.
+Optionally as root:
+
+`make install`
+
+Or, just copy all of the `labbe-material-*` directories to 
+`~/.local/share/icons/` and start using them.
 
 `make clean` removes all the compiled icons so you can start fresh.
-
-`make && make package` makes a tarball of the icons in the proper
-directory structure.
 
 ## Config
 
@@ -29,4 +30,4 @@ Offer up a pull request if you can fix a bug or add more icons.
 
 ## licence
 
-GPL-V3.0 for code and CCBY-SA-4 (creative commons) for artwork.
+GPL-V3.0

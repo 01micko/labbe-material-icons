@@ -6,6 +6,7 @@ case "$0" in
 		rm -rf ${NAME}-${i}
 	 done
 	 rm -rf ${PKG}-${VER}
+	 rm -rf ${PKG}
 	 exit
 	;;
 esac

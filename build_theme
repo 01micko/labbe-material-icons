@@ -133,9 +133,7 @@ while read -r y;do
 			;;
 	esac
 done < $TMP0
-#rm $TMP0
-# move to dir structure
-pkg=$PKG-$VER # build.conf
-mkdir -p ${pkg}/usr/share/icons
-cp -arf "$THEME" ${pkg}/usr/share/icons
-echo "$pkg created"
+rm $TMP0
+# move to 'icons' dir
+mkdir -p icons
+cp -arf "$THEME" icons
