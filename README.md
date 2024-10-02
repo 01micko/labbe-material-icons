@@ -17,7 +17,16 @@ directories to `~/local/share/icons/` and start using them.
 `make && make package` makes a tarball of the icons in the proper
 directory structure.
 
+## Config
+
+The default is to only build `bark` and `sage` colors but you can build
+all colors by editing `build.conf` or only one color if you like.
+
 ## Bugs
 
 Report them here including feature requests in the `issues` section.
 Offer up a pull request if you can fix a bug or add more icons.
+
+## licence
+
+GPL-V3.0 for code and CCBY-SA-4 (creative commons) for artwork.

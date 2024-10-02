@@ -67,7 +67,6 @@ echo "${THEME}" | grep -q 'base' || OTHER="${NAME}-base,"
 echo '[Icon Theme]' > "${THEME}"/index.theme
 echo "Name=${THEME}" >> "${THEME}"/index.theme
 echo "Inherits=${OTHER}hicolor" >> "${THEME}"/index.theme
-echo "${THEME}" | grep -q 'base' && echo 'Hidden=true' >> "${THEME}"/index.theme
 echo "Comment=$COMMENT" >> "${THEME}"/index.theme
 echo -n "Directories=" >> "${THEME}"/index.theme
 (cd "${THEME}"; find ./16 ./16@2x ./22 ./22@2x ./24 ./24@2x ./32 ./32@2x ./48 ./48@2x ./64 ./64@2x ./scalable ./scalable@2x -maxdepth 1 -type d -o -type l) > $TMP0
@@ -139,3 +138,4 @@ done < $TMP0
 pkg=$PKG-$VER # build.conf
 mkdir -p ${pkg}/usr/share/icons
 cp -arf "$THEME" ${pkg}/usr/share/icons
+echo "$pkg created"

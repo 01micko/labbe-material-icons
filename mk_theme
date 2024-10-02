@@ -5,10 +5,11 @@ case "$0" in
 	 for i in base sage bark banana blue; do	
 		rm -rf ${NAME}-${i}
 	 done
-	exit
+	 rm -rf ${PKG}-${VER}
+	 exit
 	;;
 esac
 
-for I in base sage bark banana blue; do
+for I in base $COLORS; do
 	./build_theme $I
 done
