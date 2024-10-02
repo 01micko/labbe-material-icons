@@ -1,0 +1,19 @@
+Source: labbe-material-icons
+Section: x11
+Priority: optional
+Maintainer: Mick Amadio <01micko@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.1
+Homepage: https://github.com/01micko/labbe-material-icons
+Rules-Requires-Root: no
+Vcs-Git: https://github.com/01micko/labbe-material-icons.git
+Vcs-Browser: https://github.com/01micko/labbe-material-icons
+
+Package: labbe-material-icons
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, librsvg2-common
+Recommends: gtk-update-icon-cache
+Description: Light weight gtk icon theme.
+ It includes 2 colors, sage and bark making it an ideal complement
+ for the yaru GTK themes.
