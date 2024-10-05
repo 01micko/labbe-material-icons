@@ -25,8 +25,9 @@ all colors by editing `build.conf` or only one color if you like.
 
 ## Bugs
 
-Report them here including feature requests in the `issues` section.
-Offer up a pull request if you can fix a bug or add more icons.
+Report bugs to
+
+https://github.com/01micko/labbe-material-icons/issues
 
 ## licence
 
