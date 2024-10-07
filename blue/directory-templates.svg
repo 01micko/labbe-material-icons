@@ -9,6 +9,6 @@
 
   <path style="fill:url(#Gradient0);stroke:none" d="m 22,30 48,0 a 6 6 0 0 1 6,6 a 6 6 0 0 0 6,6 l 88,0 a 12 12 0 0 1 12,12  l 0,96 a 12,12 0 0 1 -12,12 l -148,0 a 12,12 0 0 1 -12,-12 l 0,-108 a 12,12 0 0 1 12,-12 z"/>  
   <path style="fill:#03A9F4;stroke:none" d="m 22,68 48,0 a 6 6 0 0 0 6,-6 a 6 6 0 0 1 6,-6 l 88,0 a 12 12 0 0 1 12,12  l 0,82 a 12,12 0 0 1 -12,12 l -148,0 a 12,12 0 0 1 -12,-12 l 0,-70 a 12,12 0 0 1 12,-12 z"/>  
-  <path style="stroke:#BCBCBC;stroke-width:1;fill:none;" d="m 76,140 20,0 -20,-40 z"/>
-  <path style="fill:#BCBCBC;" d="m 100,100 6,0 0,37 -3,5 -3,-5 z"/>
+  <path style="stroke:#BCBCBC;stroke-width:3;fill:none;" d="m 76,140 30,0 -30,-60 z"/>
+  <path style="fill:#BCBCBC;" d="m 110,80 6,0 0,55 -3,7 -3,-7 z"/>
 </svg>

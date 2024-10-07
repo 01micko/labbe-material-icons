@@ -6,8 +6,15 @@
       <stop style="stop-color:#49594C;stop-opacity:1" offset="1" />
     </linearGradient>
   </defs>
-
   <path style="fill:url(#Gradient0);stroke:none" d="m 22,30 48,0 a 6 6 0 0 1 6,6 a 6 6 0 0 0 6,6 l 88,0 a 12 12 0 0 1 12,12  l 0,96 a 12,12 0 0 1 -12,12 l -148,0 a 12,12 0 0 1 -12,-12 l 0,-108 a 12,12 0 0 1 12,-12 z"/>  
   <path style="fill:#708975;stroke:none" d="m 22,68 48,0 a 6 6 0 0 0 6,-6 a 6 6 0 0 1 6,-6 l 88,0 a 12 12 0 0 1 12,12  l 0,82 a 12,12 0 0 1 -12,12 l -148,0 a 12,12 0 0 1 -12,-12 l 0,-70 a 12,12 0 0 1 12,-12 z"/>  
-  <path style="fill:#BCBCBC;stroke:none;" d="m 96,142 a 15,15 1 1 1 0.1,0 z m 10,-15 0,-54 6,4 0,50 z"/>
+  <g transform="scale(0.86) translate(20,20)">
+    <path style="fill:#BCBCBC;stroke:none;" d="m 66,142 0,-60 66,-12 0,60 -3,0 0,-50 -60,10 0,50"/>
+    <g transform="rotate(-20, 58, 150)">
+      <path style="fill:#BCBCBC;stroke:none;" d="m 58,150 a 15,10 1 1 1 0.1,0 z"/>
+    </g>
+    <g transform="rotate(-20, 121, 139)">
+      <path style="fill:#BCBCBC;stroke:none;" d="m 121,139 a 15,10 1 1 1 0.1,0 z"/>
+    </g>
+  </g>  
 </svg>
