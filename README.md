@@ -21,7 +21,7 @@ Or, just copy all of the `labbe-material-*` directories to
 ## Config
 
 The default is to only build `bark` and `sage` colors but you can build
-all colors by editing `build.conf` or only one color if you like.
+only one color if you like by editing `build.conf`.
 
 ## Bugs
 

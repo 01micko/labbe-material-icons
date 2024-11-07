@@ -2,7 +2,7 @@
 . ./build.conf
 case "$0" in
 	*mk_clean)
-	 for i in base sage bark banana blue; do	
+	 for i in base sage; do	
 		rm -rf ${NAME}-${i}
 	 done
 	 rm -rf ${PKG}-${VER}
